@@ -4,9 +4,9 @@ require 'retrospectives'
 
 include Retrospectives
 
-members =  [{name: 'Gagan', sheet_key: '1bitkGbG_o5XbmTFD385Yn61d6oM6p8vJcondhh1pFjM', sheet_index: 1},
-            {name: 'Neelakshi', sheet_key: '1iYqA1irBBpktV3ssvxeZRuzkzAZ9RFqYcqI26kJUrSI', sheet_index: 1},
-            {name: 'Dinesh', sheet_key: '1qwx--iJ14ZI9hUgumdixove9aeoQU-oZibKi80QLICQ', sheet_index: 1}
+members =  [{name: 'Neelakshi', sheet_key: '1iYqA1irBBpktV3ssvxeZRuzkzAZ9RFqYcqI26kJUrSI', sheet_index: 1}
+            # {name: 'Rohan', sheet_key: '1tZw7R_b40JogGRhXbVKRXaQpDlOB7JX-gd_DuPg_4tw', sheet_index: 1},
+            # {name: 'Dinesh', sheet_key: '1qwx--iJ14ZI9hUgumdixove9aeoQU-oZibKi80QLICQ', sheet_index: 1}
           ]
 
 

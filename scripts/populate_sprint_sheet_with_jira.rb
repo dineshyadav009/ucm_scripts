@@ -8,7 +8,7 @@ include Retrospectives
 HEADERS = ['Key', 'Summary', 'Type', 'Status', 'Owner', 'Reviewer', 'Assigned SPs']
 
 STORY_POINT_CUSTOM_FIELD = 'customfield_10004'
-SPRINT_SHEET_KEY = '1UCBgSJkOJvMBZfAqAtlyQWakxkCqZ7kLO1nTCFX-GYA'
+SPRINT_SHEET_KEY = '1ARZ8RqHeNtj7lEdawCm1PX6HPXICMo3BnZ88bPXrUXA'
 UPTIME_CLOUD_MONITOR_BOARD_ID = 1
 TICKET_COUNT = 20
 
@@ -19,7 +19,9 @@ def get_member_name(username)
     'DineshYadav' => 'Dinesh',
     'ankit' => 'Ankit',
     'ogkosal' => 'Kosal',
-    'shankar' => 'Shankar' }
+    'shankar' => 'Shankar',
+    'rohan.agarwal' => 'Rohan',
+    'mukul.agarwal' => 'Mukul' }
 
   members_username_mapping[username] ||
   username.gsub('.', ' ').gsub('_', ' ').gsub('-', ' ').split.map(&:capitalize)*' '
@@ -137,12 +139,13 @@ issues.each do |issue|
   if issue.respond_to?('attrs')
     issue_state =  issue.attrs['fields']['status']['name']
     puts "Issue state : #{issue_state} for #{issue.attrs['key']}"
-    next if issue_state == 'Closed' || issue_state == 'Accepted' || issue_state == 'Defer' ||
-            issue_state == 'Resolved'
+    # next if issue_state == 'Closed' || issue_state == 'Accepted' || issue_state == 'Defer' ||
+    #         issue_state == 'Resolved'
     key = issue.attrs['key']
     summary = issue.attrs['fields']['summary']
     type = issue.attrs['fields']['issuetype']['name']
-    status = 'Open'
+    # status = 'Open'
+    status = issue_state
     ticket_owner = ''
     reviewer = ''
     sps = issue.attrs['fields'][STORY_POINT_CUSTOM_FIELD]
@@ -153,7 +156,8 @@ issues.each do |issue|
     key = issue['key']
     summary = issue['fields']['summary']
     type = issue['fields']['issuetype']['name']
-   status = 'Open'
+   # status = 'Open'
+    status = issue_state
     ticket_owner = get_member_name(issue['fields']['assignee']['name'])
     reviewer = ''
     sps = issue['fields'][STORY_POINT_CUSTOM_FIELD]

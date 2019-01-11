@@ -4,17 +4,14 @@ require 'retrospectives'
 require_relative '../utils/load_jira_auth.rb'
 
 include Retrospectives
-
-members =  [{name: 'Gagan', username: 'gagandeep.singh', bandwidth: 1, days_worked: 8,
-             sheet_key: '1bitkGbG_o5XbmTFD385Yn61d6oM6p8vJcondhh1pFjM', sheet_index: 1},
-            {name: 'Neelakshi', username: 'Neelakshi', bandwidth: 1, days_worked: 9,
-             sheet_key: '1iYqA1irBBpktV3ssvxeZRuzkzAZ9RFqYcqI26kJUrSI', sheet_index: 1},
-            {name: 'Dinesh', username: 'DineshYadav', bandwidth: 1, days_worked: 9,
+#13
+members =  [{name: 'Dinesh', username: 'DineshYadav', bandwidth: 1, days_worked: 11,
              sheet_key: '1qwx--iJ14ZI9hUgumdixove9aeoQU-oZibKi80QLICQ', sheet_index: 1},
-            {name: 'Sweta', username: 'SwetaSharma', bandwidth: 1, days_worked: 5,
-             sheet_key: '1SyX2-62EQxSjvehcYMSknXM0HsPuoOv4_e-s2LBkbJU', sheet_index: 1},
-            {name: 'Rohan', username: 'Rohan', bandwidth: 1, days_worked: 9,
-             sheet_key: '1tZw7R_b40JogGRhXbVKRXaQpDlOB7JX-gd_DuPg_4tw', sheet_index: 1}]
+            {name: 'Rohan', username: 'Rohan', bandwidth: 1, days_worked: 11,
+             sheet_key: '1tZw7R_b40JogGRhXbVKRXaQpDlOB7JX-gd_DuPg_4tw', sheet_index: 1},
+            # {name: 'Neelakshi', username: 'Neelakshi', bandwidth: 0.25, days_worked: 11,
+            #  sheet_key: '1iYqA1irBBpktV3ssvxeZRuzkzAZ9RFqYcqI26kJUrSI', sheet_index: 1}
+]
 
 jira_options = {
   username: JiraAuth::USERNAME,
@@ -30,18 +27,18 @@ jira_options = {
 ###################################################################################################
 
 google_drive_config_file = ENV['HOME'] + '/google_auth.json'
-ignore_tickets_starting_with = 'TR,TG,INTERNAL,RETRO,PROJECT,Story ID,CR'
-time_frame = '20171016 - 20171102'
-retrospective_sheet_key = '10gXrYfaQv31v2tUW2z0esm4PPkxy05OTvQrf7fLpluE'
-sprint_sheet_key = '1UCBgSJkOJvMBZfAqAtlyQWakxkCqZ7kLO1nTCFX-GYA'
-sprint_sub_sheet_title = 'Oct II'
-sprint_id = '115'
+ignore_tickets_starting_with = 'TR,TG,INTERNAL,RETRO,PROJECT,Story ID,CR,BP'
+time_frame = '20180216 - 20180326'
+retrospective_sheet_key = '16rrCCFqkgmaQv47ssDBQlbTstm3ijv3vNa6It5TAwvc'
+sprint_sheet_key = '1ARZ8RqHeNtj7lEdawCm1PX6HPXICMo3BnZ88bPXrUXA'
+sprint_sub_sheet_title = 'Feb II'
+sprint_id = '122'
 include_other_tickets = true
 get_total_sps = true
 get_jira_hours = false
 start_row_for_tickets = 24
-project_misc_ticket_ids = ['PROJECT', 'P', 'CE-3098', 'CE-3099', 'CE-3100', 'CE-3101']
-company_internal_ticket_ids = ['CR', 'INTERNAL', 'I']
+project_misc_ticket_ids = %w(PROJECT P CE-3184 CE-3185 CE-3186 CE-3187)
+company_internal_ticket_ids = %w(CR INTERNAL I RETRO DISC JPL )
 
 
 ###################################################################################################
